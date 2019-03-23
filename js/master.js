@@ -1,3 +1,8 @@
+/*
+  Using JSDoc style for code documentation.
+  https://github.com/jsdoc3/jsdoc
+*/
+
 // Navbar toggle.
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -32,4 +37,70 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 function copyToClipboard(text) {
   window.prompt("Copy to clipboard", text);
+}
+
+/*
+  Storage.
+  Using Web Storage API (localStorage) and stringified JSON.
+*/
+// Name of localStorage item.
+var localStorageItem = "settings";
+
+/**
+ * Initializes browser local storage.
+*/
+function makeLocalStorageItem() {
+  // If localStorageItem does not exist it will create the JSON layout.
+  if (!localStorage.getItem(localStorageItem)) {
+    var settings = [
+      // Standard entries.
+      {
+        "name": "ISO8601 UTC time",
+        "value": "%Y-%m-%dT%H:%M:%SZ",
+        "timezone" {
+          "changeTimezone": "true",
+          "timezone": "+0000"
+        }
+      },
+      {
+        "name": "ISO8601 UTC time (filename friendly)",
+        "value": "%Y_%m_%dT%H_%M_%SZ",
+        "timezone" {
+          "changeTimezone": "true",
+          "timezone": "+0000"
+        }
+      },
+      {
+        "name": "ISO8601 local time",
+        "value": "%Y-%m-%dT%H:%M:%S%z",
+        "timezone" {
+          "changeTimezone": "false",
+          "timezone": "+0000"
+        }
+      }
+    ]
+
+    localStorage.setItem(localStorageItem, JSON.stringify(settings));
+  }
+}
+
+/**
+ * Returns all settings from local storage.
+ * @returns {object}
+ */
+function getSettings() {
+  // Check if item exists, else create it.
+  if (!localStorage.getItem(localStorageItem)) {
+    makeLocalStorageItem();
+  }
+
+  return JSON.parse(localStorage.getItem(localStorageItem));
+}
+
+/**
+ * Set local storage settings.
+ * @param {object} settings - New settings to be set in local storage.
+ */
+function setSettings (settings) {
+  localStorage.setItem(localStorageItem, JSON.stringify(settings));
 }
