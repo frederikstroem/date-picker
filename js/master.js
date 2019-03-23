@@ -104,3 +104,22 @@ function getSettings() {
 function setSettings (settings) {
   localStorage.setItem(localStorageItem, JSON.stringify(settings));
 }
+
+/**
+ * Function called multiple times every second to update entries.
+*/
+function updateEntries() {
+  var entriesList = document.getElementById("entriesList");
+  if (entriesList.innerHTML == "") {
+    // If entries list is empty create elements.
+
+  } else {
+    // If entries already created continue.
+
+  }
+}
+
+// Update loop.
+window.setInterval(function(){
+  updateEntries();
+}, 100);
