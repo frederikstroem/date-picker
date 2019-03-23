@@ -62,6 +62,56 @@
           </div>
 
         </div>
+
+        <h1 class="is-size-2">strftime cheat sheet</h1>
+        <p>
+          <a href="https://github.com/samsonjs/strftime" target="_blank" class="has-text-link">Source: strftime JavaScript libary.</a>
+          <br>Unsupported specifiers are rendered without the percent sign. e.g. %q becomes q. Use %% to get a literal % sign.
+          <br>
+          <br>A: full weekday name
+          <br>a: abbreviated weekday name
+          <br>B: full month name
+          <br>b: abbreviated month name
+          <br>C: AD century (year / 100), padded to 2 digits
+          <br>c: equivalent to %a %b %d %X %Y %Z in en_US (based on locale)
+          <br>D: equivalent to %m/%d/%y in en_US (based on locale)
+          <br>d: day of the month, padded to 2 digits (01-31)
+          <br>e: day of the month, padded with a leading space for single digit values (1-31)
+          <br>F: equivalent to %Y-%m-%d in en_US (based on locale)
+          <br>H: the hour (24-hour clock), padded to 2 digits (00-23)
+          <br>h: the same as %b (abbreviated month name)
+          <br>I: the hour (12-hour clock), padded to 2 digits (01-12)
+          <br>j: day of the year, padded to 3 digits (001-366)
+          <br>k: the hour (24-hour clock), padded with a leading space for single digit values (0-23)
+          <br>L: the milliseconds, padded to 3 digits [Ruby extension]
+          <br>l: the hour (12-hour clock), padded with a leading space for single digit values (1-12)
+          <br>M: the minute, padded to 2 digits (00-59)
+          <br>m: the month, padded to 2 digits (01-12)
+          <br>n: newline character
+          <br>o: day of the month as an ordinal (without padding), e.g. 1st, 2nd, 3rd, 4th, ...
+          <br>P: "am" or "pm" in lowercase (Ruby extension, based on locale)
+          <br>p: "AM" or "PM" (based on locale)
+          <br>R: equivalent to %H:%M in en_US (based on locale)
+          <br>r: equivalent to %I:%M:%S %p in en_US (based on locale)
+          <br>S: the second, padded to 2 digits (00-60)
+          <br>s: the number of seconds since the Epoch, UTC
+          <br>T: equivalent to %H:%M:%S in en_US (based on locale)
+          <br>t: tab character
+          <br>U: week number of the year, Sunday as the first day of the week, padded to 2 digits (00-53)
+          <br>u: the weekday, Monday as the first day of the week (1-7)
+          <br>v: equivalent to %e-%b-%Y in en_US (based on locale)
+          <br>W: week number of the year, Monday as the first day of the week, padded to 2 digits (00-53)
+          <br>w: the weekday, Sunday as the first day of the week (0-6)
+          <br>X: equivalent to %T or %r in en_US (based on locale)
+          <br>x: equivalent to %D in en_US (based on locale)
+          <br>Y: the year with the century
+          <br>y: the year without the century (00-99)
+          <br>Z: the time zone name, replaced with an empty string if it is not found
+          <br>z: the time zone offset from UTC, with a leading plus sign for UTC and zones east of UTC and a minus sign for those west of UTC, hours and minutes follow each padded to 2 digits and with no delimiter between them
+          <br>For more detail see man 3 strftime as the format specifiers should behave identically. If behaviour differs please file a bug.
+          <br>
+          <br>Any specifier can be modified with -, _, 0, or : as well, as in Ruby. Using %- will omit any leading zeroes or spaces, %_ will force spaces for padding instead of the default, and %0 will force zeroes for padding. There's some redundancy here as %-d and %e have the same result, but it solves some awkwardness with formats like %l. Using %: for time zone offset, as in %:z will insert a colon as a delimiter.
+        </p>
       </div>
     </main>
 
