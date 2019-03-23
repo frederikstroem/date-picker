@@ -57,7 +57,7 @@ function makeLocalStorageItem() {
       {
         "name": "ISO8601 UTC time",
         "value": "%Y-%m-%dT%H:%M:%SZ",
-        "timezone" {
+        "timezone": {
           "changeTimezone": "true",
           "timezone": "+0000"
         }
@@ -65,7 +65,7 @@ function makeLocalStorageItem() {
       {
         "name": "ISO8601 UTC time (filename friendly)",
         "value": "%Y_%m_%dT%H_%M_%SZ",
-        "timezone" {
+        "timezone": {
           "changeTimezone": "true",
           "timezone": "+0000"
         }
@@ -73,7 +73,7 @@ function makeLocalStorageItem() {
       {
         "name": "ISO8601 local time",
         "value": "%Y-%m-%dT%H:%M:%S%z",
-        "timezone" {
+        "timezone": {
           "changeTimezone": "false",
           "timezone": "+0000"
         }
