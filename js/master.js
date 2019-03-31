@@ -190,6 +190,12 @@ function entriesListEvent(e) {
     settings.splice(i, 0, replaceItem)
     document.getElementById("entriesList").innerHTML = "";
     setSettings(settings);
+  } else if (e.target.classList.contains('fa-angle-down') && i < settings.length - 1) {
+    var replaceItem = settings[i + 1];
+    settings.splice(i + 1, 1);
+    settings.splice(i, 0, replaceItem)
+    document.getElementById("entriesList").innerHTML = "";
+    setSettings(settings);
   }
 
   e.stopPropagation();
