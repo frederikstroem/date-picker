@@ -139,7 +139,7 @@ function updateEntries() {
       var entry = document.createElement("div");
       entry.classList = "columns is-multiline";
       entry.innerHTML =
-        '<h1 class="column is-full">' + settings[i]["name"] + "</h1>" +
+        '<h1 class="column is-full is-size-4">' + settings[i]["name"] + "</h1>" +
         '<div class="column is-narrow" style="width: 36px;text-align: center;"><i class="fas fa-angle-up"></i><i class="far fa-clipboard"></i><i class="fas fa-angle-down"></i><i class="fas fa-times"></i></div>' +
         '<span class="column">' + getEntryOutput(settings[i]) + "</span>"
       ;
