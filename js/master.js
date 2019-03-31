@@ -184,6 +184,12 @@ function entriesListEvent(e) {
     settings.splice(i, 1);
     document.getElementById("entriesList").innerHTML = "";
     setSettings(settings);
+  } else if (e.target.classList.contains('fa-angle-up') && i > 0) {
+    var replaceItem = settings[i - 1];
+    settings.splice(i - 1, 1);
+    settings.splice(i, 0, replaceItem)
+    document.getElementById("entriesList").innerHTML = "";
+    setSettings(settings);
   }
 
   e.stopPropagation();
