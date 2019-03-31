@@ -53,6 +53,13 @@
           <div class="column is-one-third-fullhd">
             <h1 class="is-size-2">New entry</h1>
             <div class="field">
+              <label class="label">Entry name</label>
+              <div class="control">
+                <input id="entryName" class="input" type="text" placeholder="ISO8601 UTC time">
+              </div>
+              <p class="help">Enter a name for your entry.</p>
+            </div>
+            <div class="field">
               <label class="label">strftime input</label>
               <div class="control">
                 <input id="strftime" class="input" type="text" placeholder="strftime formatted text input">
@@ -60,11 +67,11 @@
               <p class="help">You can look at the table underneath for help.</p>
             </div>
             <div class="field">
-              <label id="timezoneChange" class="label">Timezone change</label>
+              <label class="label">Timezone change</label>
               <div class="control">
-                <input class="input" type="text" placeholder="+0700">
+                <input id="timezoneChange" class="input" type="text" placeholder="+0700">
               </div>
-              <p class="help">Leave empty for no timezone change.</p>
+              <p class="help">Leave empty for no timezone change and use local time instead.</p>
             </div>
             <a id="addNewEntry" class="button is-primary is-medium">Add new entry</a>
             <a id="clear" class="button is-medium">Clear</a>

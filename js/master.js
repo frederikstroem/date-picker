@@ -166,6 +166,52 @@ function updateEntries() {
 // Init run.
 updateEntries();
 
+/**
+ * Add new entry based on the input in the form.
+ */
+function newEntry() {
+  var settings = getSettings();
+  var entryNameInput = document.getElementById("entryName").value;
+  if (entryNameInput.length == 0) {
+    entryNameInput = "Entry";
+  }
+  var strftimeInput = document.getElementById("strftime").value;
+  var timezoneChangeInput = document.getElementById("timezoneChange").value;
+  var entry = {
+    "name": entryNameInput,
+    "value": strftimeInput,
+    "timezone": {
+      "changeTimezone": false,
+      "timezone": "+0000"
+    }
+  }
+  try {
+    if (timezoneChangeInput != "") {
+      if (timezoneChangeInput.length != 5) {
+        throw "";
+      }
+      for (var i = 0; i < timezoneChangeInput.length; i++) {
+        if (i == 0 && (timezoneChangeInput[i] != "+" || timezoneChangeInput[i] != "-")) {
+          throw "";
+        } else if (isNaN(timezoneChangeInput[i]) == false) {
+          if ((i == 1 || i == 3) && timezoneChangeInput[i] > 6) {
+            throw "";
+          }
+        } else {
+          throw "";
+        }
+      }
+      entry["timezone"]["changeTimezone"]
+
+    }
+    settings.push(entry);
+    setSettings(settings);
+    document.getElementById("entriesList").innerHTML = "";
+  } catch (e) {
+    alert("Wrong timezone format used...");
+  }
+}
+
 document.querySelector("#entriesList").addEventListener("click", entriesListEvent, false);
 function entriesListEvent(e) {
   var settings = getSettings();
@@ -203,6 +249,7 @@ function entriesListEvent(e) {
 
 // Click.
 document.getElementById("resetEverything").addEventListener("click", resetEverything);
+document.getElementById("addNewEntry").addEventListener("click", newEntry);
 
 // Update loop.
 window.setInterval(function(){
