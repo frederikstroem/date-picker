@@ -129,10 +129,11 @@ function updateEntries() {
     // If entries list is empty create elements.
     for (var i = 0; i < settings.length; i++) {
       var entry = document.createElement("div");
+      entry.classList = "columns is-multiline";
       entry.innerHTML =
-        '<div><i class="fas fa-angle-up"></i><i class="far fa-clipboard"></i><i class="fas fa-angle-down"></i></div>' +
-        "<h1>" + settings[i]["name"] + "</h1>" +
-        "<span>" + getEntryOutput(settings[i]) + "</span>"
+        '<h1 class="column is-full">' + settings[i]["name"] + "</h1>" +
+        '<div class="column is-narrow" style="width: 36px;text-align: center;"><i class="fas fa-angle-up"></i><i class="far fa-clipboard"></i><i class="fas fa-angle-down"></i></div>' +
+        '<span class="column">' + getEntryOutput(settings[i]) + "</span>"
       ;
       entriesList.appendChild(entry);
     }

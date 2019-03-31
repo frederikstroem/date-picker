@@ -15,3 +15,16 @@ main {
 main *, .label {
   color: #f5f5f5;
 }
+
+#entriesList i {
+  cursor: pointer;
+}
+
+#entriesList h1 {
+  font-size: 20px;
+  padding-bottom: 0px;
+}
+
+#entriesList span {
+  padding-top: 36px;
+}
