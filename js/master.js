@@ -191,13 +191,13 @@ function newEntry() {
         throw "";
       }
       for (var i = 0; i < timezoneChangeInput.length; i++) {
-        if (i == 0 && (timezoneChangeInput[i] != "+" || timezoneChangeInput[i] != "-")) {
+        if (i == 0 && timezoneChangeInput[i] != "+" && timezoneChangeInput[i] != "-") {
           throw "";
-        } else if (isNaN(timezoneChangeInput[i]) == false) {
+        } else if (i > 0 && isNaN(timezoneChangeInput[i]) == false) {
           if ((i == 1 || i == 3) && timezoneChangeInput[i] > 6) {
             throw "";
           }
-        } else {
+        } else if (i > 0) {
           throw "";
         }
       }
