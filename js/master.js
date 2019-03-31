@@ -156,6 +156,8 @@ function updateEntries() {
 
 document.querySelector("#entriesList").addEventListener("click", entriesListEvent, false);
 function entriesListEvent(e) {
+  var settings = getSettings();
+
   if (e.target.classList.contains('fa-clipboard')) {
     child = e.target.parentElement.parentElement;
     var i = 0;
@@ -165,7 +167,17 @@ function entriesListEvent(e) {
     var entriesList = document.getElementById("entriesList");
     var entriesListSpans = entriesList.querySelectorAll("span");
     copyToClipboard(entriesListSpans[i].innerHTML);
+  } else if (e.target.classList.contains('fa-times')) {
+    child = e.target.parentElement.parentElement;
+    var i = 0;
+    while((child = child.previousSibling) != null) {
+      i++;
+    }
+    settings.splice(i, 1);
+    document.getElementById("entriesList").innerHTML = "";
+    setSettings(settings);
   }
+
   e.stopPropagation();
 }
 
