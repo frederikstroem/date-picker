@@ -139,11 +139,26 @@ function updateEntries() {
     }
   } else {
     // If entries already created continue.
-    var entriesListDivs = entriesList.querySelectorAll("span");
+    var entriesListSpans = entriesList.querySelectorAll("span");
     for (var i = 0; i < settings.length; i++) {
-      entriesListDivs[i].innerHTML = getEntryOutput(settings[i]);
+      entriesListSpans[i].innerHTML = getEntryOutput(settings[i]);
     }
   }
+}
+
+document.querySelector("#entriesList").addEventListener("click", entriesListEvent, false);
+function entriesListEvent(e) {
+  if (e.target.classList.contains('fa-clipboard')) {
+    child = e.target.parentElement.parentElement;
+    var i = 0;
+    while((child = child.previousSibling) != null) {
+      i++;
+    }
+    var entriesList = document.getElementById("entriesList");
+    var entriesListSpans = entriesList.querySelectorAll("span");
+    copyToClipboard(entriesListSpans[i].innerHTML);
+  }
+  e.stopPropagation();
 }
 
 // Update loop.
