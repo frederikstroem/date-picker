@@ -130,7 +130,7 @@ function updateEntries() {
     for (var i = 0; i < settings.length; i++) {
       var entry = document.createElement("div");
       entry.innerHTML =
-        "<div></div>" +
+        '<div><i class="fas fa-angle-up"></i><i class="far fa-clipboard"></i><i class="fas fa-angle-down"></i></div>' +
         "<h1>" + settings[i]["name"] + "</h1>" +
         "<span>" + getEntryOutput(settings[i]) + "</span>"
       ;
