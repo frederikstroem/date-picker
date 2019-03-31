@@ -158,21 +158,17 @@ document.querySelector("#entriesList").addEventListener("click", entriesListEven
 function entriesListEvent(e) {
   var settings = getSettings();
 
+  child = e.target.parentElement.parentElement;
+  var i = 0;
+  while((child = child.previousSibling) != null) {
+    i++;
+  }
+
   if (e.target.classList.contains('fa-clipboard')) {
-    child = e.target.parentElement.parentElement;
-    var i = 0;
-    while((child = child.previousSibling) != null) {
-      i++;
-    }
     var entriesList = document.getElementById("entriesList");
     var entriesListSpans = entriesList.querySelectorAll("span");
     copyToClipboard(entriesListSpans[i].innerHTML);
   } else if (e.target.classList.contains('fa-times')) {
-    child = e.target.parentElement.parentElement;
-    var i = 0;
-    while((child = child.previousSibling) != null) {
-      i++;
-    }
     settings.splice(i, 1);
     document.getElementById("entriesList").innerHTML = "";
     setSettings(settings);
