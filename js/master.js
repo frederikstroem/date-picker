@@ -58,7 +58,7 @@ function makeLocalStorageItem() {
         "name": "ISO8601 UTC time",
         "value": "%Y-%m-%dT%H:%M:%SZ",
         "timezone": {
-          "changeTimezone": "true",
+          "changeTimezone": true,
           "timezone": "+0000"
         }
       },
@@ -66,7 +66,7 @@ function makeLocalStorageItem() {
         "name": "ISO8601 UTC time (filename friendly)",
         "value": "%Y_%m_%dT%H_%M_%SZ",
         "timezone": {
-          "changeTimezone": "true",
+          "changeTimezone": true,
           "timezone": "+0000"
         }
       },
@@ -74,7 +74,7 @@ function makeLocalStorageItem() {
         "name": "ISO8601 local time",
         "value": "%Y-%m-%dT%H:%M:%S%z",
         "timezone": {
-          "changeTimezone": "false",
+          "changeTimezone": false,
           "timezone": "+0000"
         }
       }
@@ -106,13 +106,36 @@ function setSettings (settings) {
 }
 
 /**
+ * Returns output for entry.
+ * @param {object} entry - Entry setting.
+ * @returns {object}
+ */
+function getEntryOutput(entry) {
+  if (entry["timezone"]["changeTimezone"] == true) {
+    var timezone = strftime.timezone(entry["timezone"]["timezone"]);
+    return timezone(entry["value"]);
+  } else {
+    return strftime(entry["value"]);
+  }
+}
+
+/**
  * Function called multiple times every second to update entries.
-*/
+ */
 function updateEntries() {
+  var settings = getSettings();
   var entriesList = document.getElementById("entriesList");
   if (entriesList.innerHTML == "") {
     // If entries list is empty create elements.
-
+    for (var i = 0; i < settings.length; i++) {
+      var entry = document.createElement("div");
+      entry.innerHTML =
+        "<div></div>" +
+        "<h1>" + settings[i]["name"] + "</h1>" +
+        "<span>" + getEntryOutput(settings[i]) + "</span>"
+      ;
+      entriesList.appendChild(entry);
+    }
   } else {
     // If entries already created continue.
 
