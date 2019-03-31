@@ -114,6 +114,16 @@ function setSettings (settings) {
 }
 
 /**
+ * Reset storage.
+ */
+function resetEverything() {
+  localStorage.removeItem(localStorageItem);
+  document.getElementById("entriesList").innerHTML = "";
+  getSettings();
+  updateEntries();
+}
+
+/**
  * Returns output for entry.
  * @param {object} entry - Entry setting.
  * @returns {object}
@@ -153,6 +163,8 @@ function updateEntries() {
     }
   }
 }
+// Init run.
+updateEntries();
 
 document.querySelector("#entriesList").addEventListener("click", entriesListEvent, false);
 function entriesListEvent(e) {
@@ -176,6 +188,9 @@ function entriesListEvent(e) {
 
   e.stopPropagation();
 }
+
+// Click.
+document.getElementById("resetEverything").addEventListener("click", resetEverything);
 
 // Update loop.
 window.setInterval(function(){
