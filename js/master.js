@@ -72,7 +72,7 @@ function makeLocalStorageItem() {
       },
       {
         "name": "ISO8601 local time",
-        "value": "%Y-%m-%dT%H:%M:%S%z",
+        "value": "%Y-%m-%dT%H:%M:%S%:z",
         "timezone": {
           "changeTimezone": false,
           "timezone": "+0000"
