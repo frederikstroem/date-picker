@@ -137,7 +137,7 @@ function updateEntries() {
     // If entries list is empty create elements.
     for (var i = 0; i < settings.length; i++) {
       var entry = document.createElement("div");
-      entry.classList = "columns is-multiline";
+      entry.classList = "columns is-multiline is-mobile";
       entry.innerHTML =
         '<h1 class="column is-full is-size-4">' + settings[i]["name"] + "</h1>" +
         '<div class="column is-narrow" style="width: 36px;text-align: center;"><i class="fas fa-angle-up"></i><i class="far fa-clipboard"></i><i class="fas fa-angle-down"></i><i class="fas fa-times"></i></div>' +
