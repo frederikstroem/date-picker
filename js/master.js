@@ -139,7 +139,10 @@ function updateEntries() {
     }
   } else {
     // If entries already created continue.
-
+    var entriesListDivs = entriesList.querySelectorAll("span");
+    for (var i = 0; i < settings.length; i++) {
+      entriesListDivs[i].innerHTML = getEntryOutput(settings[i]);
+    }
   }
 }
 
