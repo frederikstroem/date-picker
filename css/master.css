@@ -25,6 +25,10 @@ main *, .label {
   padding-bottom: 0px;
 }
 
+#entriesList div:not(:first-child) h1 {
+  padding-top: 0px;
+}
+
 #entriesList span {
   padding-top: 36px;
 }
