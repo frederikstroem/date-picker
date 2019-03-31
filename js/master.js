@@ -167,6 +167,15 @@ function updateEntries() {
 updateEntries();
 
 /**
+ * Clears input fields.
+ */
+function clearInputFields() {
+  document.getElementById("entryName").value = "";
+  document.getElementById("strftime").value = "";
+  document.getElementById("timezoneChange").value = "";
+}
+
+/**
  * Add new entry based on the input in the form.
  */
 function newEntry() {
@@ -250,6 +259,7 @@ function entriesListEvent(e) {
 // Click.
 document.getElementById("resetEverything").addEventListener("click", resetEverything);
 document.getElementById("addNewEntry").addEventListener("click", newEntry);
+document.getElementById("clear").addEventListener("click", clearInputFields);
 
 // Update loop.
 window.setInterval(function(){
