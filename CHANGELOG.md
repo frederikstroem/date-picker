@@ -1,4 +1,7 @@
 # Changelog
+## v0.2.3
+- Added screenshots to README.
+
 ## v0.2.2
 - Forgot to update changelog.
 
