@@ -221,6 +221,21 @@ function newEntry() {
   }
 }
 
+/**
+ *
+ */
+function importExport() {
+  var promptSettings = window.prompt("Copy or replace settings", JSON.stringify(getSettings()));
+
+  // Check if settings have changed.
+  if (promptSettings != JSON.stringify(getSettings())) {
+    setSettings(JSON.parse(promptSettings));
+    // Update entries.
+    document.getElementById("entriesList").innerHTML = "";
+    updateEntries();
+  }
+}
+
 document.querySelector("#entriesList").addEventListener("click", entriesListEvent, false);
 function entriesListEvent(e) {
   var settings = getSettings();
@@ -258,6 +273,7 @@ function entriesListEvent(e) {
 
 // Click.
 document.getElementById("resetEverything").addEventListener("click", resetEverything);
+document.getElementById("importExport").addEventListener("click", importExport);
 document.getElementById("addNewEntry").addEventListener("click", newEntry);
 document.getElementById("clear").addEventListener("click", clearInputFields);
 
