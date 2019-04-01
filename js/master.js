@@ -228,7 +228,7 @@ function importExport() {
   var promptSettings = window.prompt("Copy or replace settings", JSON.stringify(getSettings()));
 
   // Check if settings have changed.
-  if (promptSettings != JSON.stringify(getSettings())) {
+  if (promptSettings != JSON.stringify(getSettings()) && promptSettings != null) {
     setSettings(JSON.parse(promptSettings));
     // Update entries.
     document.getElementById("entriesList").innerHTML = "";
